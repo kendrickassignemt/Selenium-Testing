@@ -275,7 +275,7 @@ SeleniumBase methods automatically wait for page elements to finish loading befo
 SeleniumBase includes a solution called <b><a href="https://github.com/seleniumbase/SeleniumBase/blob/master/seleniumbase/masterqa/ReadMe.md">MasterQA</a></b>, which speeds up manual testing by having automation perform all the browser actions while the manual tester handles validatation.
 
 <h4>Feature-Rich:</h4>
-For a full list of SeleniumBase features, <a href="https://github.com/seleniumbase/SeleniumBase/blob/master/help_docs/features_list.md">Click Here</a>.
+
 
 
 <a id="detailed_instructions"></a>
@@ -294,8 +294,7 @@ pytest my_first_test.py --demo
 ``Pytest`` includes test discovery. If you don't specify a specific file or folder to run from, ``pytest`` will search all subdirectories automatically for tests to run based on the following matching criteria:
 Python filenames that start with ``test_`` or end with ``_test.py``.
 Python methods that start with ``test_``.
-The Python class name can be anything since SeleniumBase's ``BaseCase`` class inherits from the ``unittest.TestCase`` class.
-You can see which tests are getting discovered by ``pytest`` by using:
+
 
 ```bash
 pytest --collect-only -q
@@ -385,9 +384,8 @@ SeleniumBase provides additional ``pytest`` command-line options for tests:
 --timeout-multiplier=MULTIPLIER  # (Multiplies the default timeout values.)
 ```
 
-(For more details, see the full list of command-line options **[here](https://github.com/seleniumbase/SeleniumBase/blob/master/seleniumbase/plugins/pytest_plugin.py)**.)
 
-During test failures, logs and screenshots from the most recent test run will get saved to the ``latest_logs/`` folder. Those logs will get moved to ``archived_logs/`` if you add --archive_logs to command-line options, or have ARCHIVE_EXISTING_LOGS set to True in [settings.py](https://github.com/seleniumbase/SeleniumBase/blob/master/seleniumbase/config/settings.py), otherwise log files with be cleaned up at the start of the next test run. The ``test_suite.py`` collection contains tests that fail on purpose so that you can see how logging works.
+During test failures, logs and screenshots from the most recent test run will get saved to the ``latest_logs/`` folder. Those logs will get moved to ``archived_logs/`` if you add --archive_logs to command-line options, or have ARCHIVE_EXISTING_LOGS set to True in [settings.py](https://github.com/kendrickassignemt/Selenium-Testing/blob/master/seleniumbase/config/settings.py), otherwise log files with be cleaned up at the start of the next test run. The ``test_suite.py`` collection contains tests that fail on purpose so that you can see how logging works.
 
 ```bash
 cd examples/
@@ -771,89 +769,3 @@ self.execute_script("return jQuery('div#amazing')[0].text")  # Returns the css "
 
 self.execute_script("return jQuery('textarea')[2].value")  # Returns the css "value" of the 3rd textarea element on the page
 ```
-
-In the next example, JavaScript creates a referral button on a page, which is then clicked:
-
-```python
-start_page = "https://xkcd.com/465/"
-destination_page = "https://github.com/seleniumbase/SeleniumBase"
-self.open(start_page)
-referral_link = '''<a class='analytics test' href='%s'>Free-Referral Button!</a>''' % destination_page
-self.execute_script('''document.body.innerHTML = \"%s\"''' % referral_link)
-self.click("a.analytics")  # Clicks the generated button
-```
-(Due to popular demand, this traffic generation example has been baked into SeleniumBase with the ``self.generate_referral(start_page, end_page)`` and the ``self.generate_traffic(start_page, end_page, loops)`` methods.)
-
-<h4>Using deferred asserts:</h4>
-
-Let's say you want to verify multiple different elements on a web page in a single test, but you don't want the test to fail until you verified several elements at once so that you don't have to rerun the test to find more missing elements on the same page. That's where deferred asserts come in. Here's the example:
-
-```python
-from seleniumbase import BaseCase
-
-class MyTestClass(BaseCase):
-
-    def test_deferred_asserts(self):
-        self.open('https://xkcd.com/993/')
-        self.wait_for_element('#comic')
-        self.deferred_assert_element('img[alt="Brand Identity"]')
-        self.deferred_assert_element('img[alt="Rocket Ship"]')  # Will Fail
-        self.deferred_assert_element('#comicmap')
-        self.deferred_assert_text('Fake Item', '#middleContainer')  # Will Fail
-        self.deferred_assert_text('Random', '#middleContainer')
-        self.deferred_assert_element('a[name="Super Fake !!!"]')  # Will Fail
-        self.process_deferred_asserts()
-```
-
-``deferred_assert_element()`` and ``deferred_assert_text()`` will save any exceptions that would be raised.
-To flush out all the failed deferred asserts into a single exception, make sure to call ``self.process_deferred_asserts()`` at the end of your test method. If your test hits multiple pages, you can call ``self.process_deferred_asserts()`` before navigating to a new page so that the screenshot from your log files matches the URL where the deferred asserts were made.
-
-<h4>Accessing raw WebDriver</h4>
-
-If you need access to any commands that come with standard WebDriver, you can call them directly like this:
-
-```python
-self.driver.delete_all_cookies()
-capabilities = self.driver.capabilities
-self.driver.find_elements_by_partial_link_text("GitHub")
-```
-(In general, you'll want to use the SeleniumBase versions of methods when available.)
-
-<h4>Retrying failing tests automatically</h4>
-
-You can use ``--reruns NUM`` to retry failing tests that many times. Use ``--reruns-delay SECONDS`` to wait that many seconds between retries. Example:
-
-```
-pytest --reruns 5 --reruns-delay 1
-```
-
-Additionally, you can use the ``@retry_on_exception()`` decorator to specifically retry failing methods. (First import: ``from seleniumbase import decorators``) To learn more about SeleniumBase decorators, [click here](https://github.com/seleniumbase/SeleniumBase/tree/master/seleniumbase/common).
-
-
-<h3><img src="https://seleniumbase.io/img/logo3a.png" title="SeleniumBase" width="32" /> Wrap-Up</h3>
-
-<b>Congratulations on getting started with SeleniumBase!</b>
-
-<p>
-<div><b>If you see something, say something!</b></div>
-<div><a href="https://github.com/seleniumbase/SeleniumBase/issues?q=is%3Aissue+is%3Aclosed"><img src="https://img.shields.io/github/issues-closed-raw/seleniumbase/SeleniumBase.svg?color=22BB88" title="Closed Issues" /></a>   <a href="https://github.com/seleniumbase/SeleniumBase/pulls?q=is%3Apr+is%3Aclosed"><img src="https://img.shields.io/github/issues-pr-closed/seleniumbase/SeleniumBase.svg?logo=github&logoColor=white&color=22BB99" title="Closed Pull Requests" /></a></div>
-</p>
-
-<p>
-<div><b>If you like us, give us a star!</b></div>
-<div><a href="https://github.com/seleniumbase/SeleniumBase/stargazers"><img src="https://img.shields.io/github/stars/seleniumbase/seleniumbase.svg?color=888CFA" title="Stargazers" /></a></div>
-</p>
-<p><div><a href="https://github.com/mdmintz">https://github.com/mdmintz</a></div></p>
-
-<div><a href="https://github.com/seleniumbase/SeleniumBase/"><img src="https://seleniumbase.io/cdn/img/super_logo_sb.png" title="SeleniumBase" width="290" /></a></div>
-
-<div><a href="https://github.com/seleniumbase/SeleniumBase/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-22BBCC.svg" title="SeleniumBase" /></a> <a href="https://github.com/seleniumbase/SeleniumBase/releases"><img src="https://img.shields.io/github/repo-size/seleniumbase/seleniumbase.svg" title="SeleniumBase" alt="Repo Size" /></a> <a href="https://gitter.im/seleniumbase/SeleniumBase"><img src="https://badges.gitter.im/seleniumbase/SeleniumBase.svg" title="SeleniumBase" alt="Join the chat!" /></a></div>
-
-<div><a href="https://github.com/seleniumbase/SeleniumBase"><img src="https://img.shields.io/badge/tested%20with-SeleniumBase-04C38E.svg" alt="Tested with SeleniumBase" /></a> <a href="https://seleniumbase.io">
-<img src="https://img.shields.io/badge/docs-%20%20SeleniumBase.io-11BBDD.svg" alt="SeleniumBase.io Docs" /></a></div>
-
-<p><div><span><a href="https://github.com/seleniumbase/SeleniumBase"><img src="https://seleniumbase.io/img/social/share_github.svg" title="SeleniumBase on GitHub" alt="SeleniumBase on GitHub" width="56" /></a></span>
-<span><a href="https://gitter.im/seleniumbase/SeleniumBase"><img src="https://seleniumbase.io/img/social/share_gitter.svg" title="SeleniumBase on Gitter" alt="SeleniumBase on Gitter" width="44" /></a></span>
-<span><a href="https://twitter.com/seleniumbase"><img src="https://seleniumbase.io/img/social/share_twitter.svg" title="SeleniumBase on Twitter" alt="SeleniumBase on Twitter" width="60" /></a></span>
-<span><a href="https://instagram.com/seleniumbase"><img src="https://seleniumbase.io/img/social/share_instagram.svg" title="SeleniumBase on Instagram" alt="SeleniumBase on Instagram" width="52" /></a></span>
-<span><a href="https://www.facebook.com/SeleniumBase"><img src="https://seleniumbase.io/img/social/share_facebook.svg" title="SeleniumBase on Facebook" alt="SeleniumBase on Facebook" width="56" /></a></span></div></p>
