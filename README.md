@@ -8,31 +8,7 @@ Tests are run with <b>pytest</b>. Browsers are controlled by <b>WebDriver</b>.
 
 <p align="center">
 <a href="#python_installation">🚀 Start</a> |
-<a href="https://github.com/seleniumbase/SeleniumBase/blob/master/help_docs/features_list.md">🦚 Features</a> |
-<a href="https://github.com/seleniumbase/SeleniumBase/blob/master/help_docs/customizing_test_runs.md">🖥️ CLI</a> |
-<a href="https://github.com/seleniumbase/SeleniumBase/blob/master/examples/ReadMe.md">👨‍🏫 Examples</a>
-<br />
-<a href="https://github.com/seleniumbase/SeleniumBase/blob/master/help_docs/method_summary.md">📗 API</a> |
-<a href="https://github.com/seleniumbase/SeleniumBase/blob/master/examples/example_logs/ReadMe.md">📊 Reports</a> |
-<a href="https://github.com/seleniumbase/SeleniumBase/blob/master/help_docs/mobile_testing.md">📱 Mobile</a> |
-<a href="https://github.com/seleniumbase/SeleniumBase/blob/master/seleniumbase/utilities/selenium_ide/ReadMe.md">⏺️ Recorder</a>
-<br />
-<a href="https://github.com/seleniumbase/SeleniumBase/blob/master/integrations/github/workflows/ReadMe.md">🤖 CI</a> |
-<a href="https://github.com/seleniumbase/SeleniumBase/blob/master/help_docs/translations.md">🌏 Translate</a> |
-<a href="https://github.com/seleniumbase/SeleniumBase/blob/master/examples/tour_examples/ReadMe.md">🗺️ Tours</a> |
-<a href="https://github.com/seleniumbase/SeleniumBase/blob/master/examples/visual_testing/ReadMe.md">🖼️ VisualTest</a>
-<br />
-<a href="https://github.com/seleniumbase/SeleniumBase/blob/master/seleniumbase/console_scripts/ReadMe.md">💻 Console Scripts</a> |
-<a href="https://github.com/seleniumbase/SeleniumBase/blob/master/seleniumbase/utilities/selenium_grid/ReadMe.md">🌐 Grid</a> |
-<a href="https://github.com/seleniumbase/SeleniumBase/tree/master/integrations/node_js">🏃 NodeRunner</a>
-<br />
-<a href="https://github.com/seleniumbase/SeleniumBase/tree/master/examples/boilerplates">♻️ Boilerplates</a> |
-<a href="https://github.com/seleniumbase/SeleniumBase/blob/master/help_docs/locale_codes.md">🗾 Locales</a> |
-<a href="https://github.com/seleniumbase/SeleniumBase/blob/master/help_docs/js_package_manager.md">🗄️ PkgManager</a>
-<br />
-<a href="https://github.com/seleniumbase/SeleniumBase/blob/master/examples/presenter/ReadMe.md">📑 Presenter</a> |
-<a href="https://github.com/seleniumbase/SeleniumBase/blob/master/examples/chart_maker/ReadMe.md">📈 ChartMaker</a> |
-<a href="https://github.com/seleniumbase/SeleniumBase/blob/master/examples/master_qa/ReadMe.md">🛂 MasterQA</a>
+
 </p>
 
 --------
@@ -46,7 +22,7 @@ pytest test_swag_labs.py --mobile
 <p align="center">(Above: <a href="https://github.com/seleniumbase/SeleniumBase/blob/master/examples/test_swag_labs.py">test_swag_labs.py</a> in Mobile Mode.)</p>
 
 <div><p align="center">(Below: Same test running in Demo Mode.)</p></div>
-<p align="center"><a href="https://github.com/seleniumbase/SeleniumBase/blob/master/examples/test_swag_labs.py"><img src="https://cdn2.hubspot.net/hubfs/100006/images/swag_labs_gif.gif" width="450" alt="SeleniumBase Demo Mode" title="SeleniumBase Demo Mode" /></a></p>
+<p align="center"><a href="https://github.com/kendrickassignemt/SeleniumBase/blob/master/examples/test_swag_labs.py"><img src="https://cdn2.hubspot.net/hubfs/100006/images/swag_labs_gif.gif" width="450" alt="SeleniumBase Demo Mode" title="SeleniumBase Demo Mode" /></a></p>
 
 ```bash
 pytest test_swag_labs.py --demo
@@ -121,7 +97,7 @@ COMMANDS:
 
 <h3><img src="https://seleniumbase.io/img/logo3a.png" title="SeleniumBase" width="32" /> Download a webdriver:</h3>
 
-SeleniumBase can download webdrivers to the [seleniumbase/drivers](https://github.com/seleniumbase/SeleniumBase/tree/master/seleniumbase/drivers) folder with the ``install`` command:
+SeleniumBase can download webdrivers to the [seleniumbase/drivers] folder with the ``install`` command:
 
 ```bash
 sbase install chromedriver
@@ -136,7 +112,6 @@ sbase install chromedriver latest
 
 * If you run a test without the correct webdriver installed, the driver will be downloaded automatically.
 
-(See [seleniumbase.io/seleniumbase/console_scripts/ReadMe/](https://seleniumbase.io/seleniumbase/console_scripts/ReadMe/) for more information on SeleniumBase console scripts.)
 
 <h3><img src="https://seleniumbase.io/img/logo3a.png" title="SeleniumBase" width="32" /> Create and run tests:</h3>
 
@@ -197,7 +172,7 @@ pytest my_first_test.py --demo
 
 <img src="https://cdn2.hubspot.net/hubfs/100006/images/my_first_test_gif.gif" title="SeleniumBase" />
 
-<b>Here's the code for [my_first_test.py](https://github.com/seleniumbase/SeleniumBase/blob/master/examples/my_first_test.py):</b>
+<b>Here's the code for [my_first_test.py]:</b>
 
 ```python
 from seleniumbase import BaseCase
@@ -248,7 +223,7 @@ self.switch_to_window(WINDOW_NUMBER)  # Switch to a different window/tab
 self.save_screenshot(FILE_NAME)  # Save a screenshot of the current page
 ```
 
-For the complete list of SeleniumBase methods, see: <b><a href="https://github.com/seleniumbase/SeleniumBase/blob/master/help_docs/method_summary.md">Method Summary</a></b>
+For the complete list of SeleniumBase methods, see: <b><a href="https://github.com/seleniumbase/Selenium-Testing/blob/master/help_docs/method_summary.md">Method Summary</a></b>
 
 <h2><img src="https://seleniumbase.io/img/logo3a.png" title="SeleniumBase" width="32" /> Learn More:</h2>
 
