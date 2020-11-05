@@ -1,24 +1,4 @@
-<meta property="og:site_name" content="SeleniumBase | Docs">
-<meta property="og:title" content="SeleniumBase | Python Web Testing" />
-<meta property="og:description" content="Build fast, reliable, end-to-end tests." />
-<meta property="og:keywords" content="Python, pytest, selenium, webdriver, test automation, testing, seleniumbase, test framework, RPA, reports, website tours, presentations">
-<meta property="og:image" content="https://seleniumbase.io/cdn/img/sb_logo_dh.png" />
-<link rel="icon" href="https://seleniumbase.io/img/logo3a.png" />
 
-<p align="center"><a href="https://github.com/seleniumbase/SeleniumBase/">
-<img src="https://seleniumbase.io/cdn/img/fancy_logo_14.png" alt="SeleniumBase" width="300" />
-</a></p>
-<p align="center"><b>A complete end-to-end testing experience.</b></p>
-<p align="center">Extends <a href="https://www.w3.org/TR/webdriver/">Selenium/WebDriver</a> and <a href="https://docs.pytest.org/en/latest/index.html">pytest</a>.</p>
-<!-- View on GitHub -->
-<p align="center">
-<a href="https://github.com/seleniumbase/SeleniumBase/releases">
-<img src="https://img.shields.io/github/v/release/seleniumbase/SeleniumBase.svg?color=2277EE" alt="Latest Release on GitHub" /></a> <a href="https://pypi.python.org/pypi/seleniumbase">
-<img src="https://img.shields.io/pypi/v/seleniumbase.svg?color=22AAEE" alt="Latest Release on PyPI" /></a> <a href="https://travis-ci.org/seleniumbase/SeleniumBase">
-<img src="https://img.shields.io/travis/seleniumbase/SeleniumBase/master.svg" alt="SeleniumBase on TravisCI" /></a> <a href="https://github.com/seleniumbase/SeleniumBase/actions">
-<img src="https://github.com/seleniumbase/SeleniumBase/workflows/CI%20build/badge.svg" alt="SeleniumBase GitHub Actions" /></a> <a href="https://gitter.im/seleniumbase/SeleniumBase">
-<img src="https://badges.gitter.im/seleniumbase/SeleniumBase.svg" alt="SeleniumBase" /></a> <a href="https://seleniumbase.io">
-<img src="https://img.shields.io/badge/docs-%20seleniumbase.io-22BBAA.svg" alt="SeleniumBase.io Docs" /></a>
 </p>
 
 <p>
